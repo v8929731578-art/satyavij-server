@@ -61,6 +61,11 @@ function getFolderSizeMB(folder){
   return (size/(1024*1024)).toFixed(2);
 }
 
+// Calculator page - sab users ke liye
+app.get("/calculator", auth, (req, res) => {
+  res.redirect("https://v0-calculator4insights.vercel.app/");
+});
+
 /* ===== FILE ICON HELPER (ADD HERE) ===== */
 function icon(ext){
   ext = ext.toLowerCase();
@@ -238,6 +243,9 @@ font-weight:800;cursor:pointer;
     <a href="/">🏠 Dashboard</a>
     <a href="/vault">📦 Vault</a>
     <a href="/chat">💬 Chat</a>
+    <a class="nav-link" href="/calculator" target="_blank">
+  <span class="nav-icon">🧮</span> <span>Calculator</span>
+</a>
     ${user.role==="admin"?'<a href="/admin">👑 Admin</a>':''}
   </div>
 </div>
